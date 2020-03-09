@@ -68,8 +68,7 @@ union <- function(data, wt, tibble = TRUE, stat = "prob") {
 
     out <- matrix(
         nrow = M,
-        ncol = M,
-        dimnames = list(VN, VN)
+        ncol = M
     )
 
 
@@ -105,6 +104,8 @@ union <- function(data, wt, tibble = TRUE, stat = "prob") {
 
         diag(out) <- sapply(data, weighted.mean, w = wgt.vec, na.rm = TRUE)
 
+        dimnames(out) <- list("Prob of A" = VN, "Or B" = VN)
+
         # used for tibbling
         value.prefix <- "p"
 
@@ -138,6 +139,8 @@ union <- function(data, wt, tibble = TRUE, stat = "prob") {
         }
 
         diag(out) <- sapply(data, function(x) sum(x * wgt.vec, na.rm = TRUE))
+
+        dimnames(out) <- list("Counts of A" = VN, "Or B" = VN)
 
         # used for tibbling
         value.prefix <- "n"

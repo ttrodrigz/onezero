@@ -68,8 +68,7 @@ intersection <- function(data, wt, tibble = TRUE, stat = "prob") {
 
     out <- matrix(
         nrow = M,
-        ncol = M,
-        dimnames = list(VN, VN)
+        ncol = M
     )
 
 
@@ -102,6 +101,8 @@ intersection <- function(data, wt, tibble = TRUE, stat = "prob") {
 
         diag(out) <- sapply(data, weighted.mean, w = wgt.vec, na.rm = TRUE)
 
+        dimnames(out) <- list("Prob of A" = VN, "And B" = VN)
+
         # used for tibbling
         value.prefix <- "p"
 
@@ -132,6 +133,8 @@ intersection <- function(data, wt, tibble = TRUE, stat = "prob") {
         }
 
         diag(out) <- sapply(data, function(x) sum(x * wgt.vec, na.rm = TRUE))
+
+        dimnames(out) <- list("Counts of A" = VN, "And B" = VN)
 
         # used for tibbling
         value.prefix <- "n"
