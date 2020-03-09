@@ -1,0 +1,19 @@
+Package: onezero
+Title: Tools to Analyze Binary Data
+Version: 0.0.9
+Authors@R: 
+    person(given = "Tony",
+           family = "Rodriguez",
+           role = c("aut", "cre"),
+           email = "ttrodrigz@gmail.com")
+Description: Need to fill this out later.
+License: MIT + file LICENSE
+URL: https://github.com/ttrodrigz/onezero
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.1.2)
+RoxygenNote: 7.0.2
+Imports:
+    dplyr (>= 0.7.0),
+    tibble,
+    tidyr (>= 1.0.0)

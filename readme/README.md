@@ -1,0 +1,68 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# onezero <img src='logo/logo2.png' align="right" height="139" />
+
+## Overview
+
+onezero provides a simple to use interface for common calculations
+carried out when analyzing binary data. The package assumes that a value
+of `1` corresponds to the presence of an event, and a `0` corresponds to
+the absence of an event. There are three main types of functions
+included:
+
+### Helper functions
+
+In order for the functions (which actually calculate things) to do their
+jobs, data must be coded into ones, zeros, or missing. Two helper
+functions aide in this:
+
+  - `onezero` recodes a vector into ones and zeros, anything not
+    specified by `one` and `zero` are considered missing.
+  - `is_onezero` checks to see if the vector contains `1`/`0`/`NA`. It’s
+    used internally in all of the functions, but can also be handy when
+    paired with `dplyr::select`/`mutate_if`.
+
+### Analysis functions (for data frames)
+
+These functions take a data frame as their main argument and the
+function is carried out across all pairwise columns in the set. These
+include:
+
+  - `p`/`n_marginal` marginal probabilities (or counts).
+  - `p`/`n_union` probability (or counts) of union.
+  - `p`/`n_intersect` probability (or counts) of intersection.
+  - `p`/`n_conditional` conditional probabilities (or counts).
+  - `jaccard` [Jaccard](https://en.wikipedia.org/wiki/Jaccard_index)
+    index or distance.
+
+These all (except `*_marginal`) return either an `m x m` matrix of
+probabilities or a 3 column data frame in “long” form (see
+`tidyr::pivot_longer`), whereas `*_marginal` returns a vector or a 2
+column data frame.
+
+### Analysis functions (for vectors)
+
+Where the above functions are useful when calculating
+probabilities/counts across pairwise combinations, sometimes it’s only
+necessary to look at one or two variables at a time. These are
+especially useful when working inside a `dplyr` style workflow. For such
+occasions, the following functions are available:
+
+  - `p_of` calculates the probability of one variable and/or/given/not
+    some other variable.
+  - `n_of` performs the same operation but instead returns counts.
+
+## Installation
+
+Proceed with caution: package is in early stage of development and
+things **will** change.
+
+``` r
+# install.packages("remotes")
+remotes::install_github("ttrodrigz/onezero")
+```
+
+## Usage
+
+This ain’t ready to be used yet :)
