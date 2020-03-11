@@ -16,4 +16,7 @@ RoxygenNote: 7.0.2
 Imports:
     dplyr (>= 0.7.0),
     tibble,
-    tidyr (>= 1.0.0)
+    tidyr (>= 1.0.0),
+    Rcpp
+LinkingTo: 
+    Rcpp

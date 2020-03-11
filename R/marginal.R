@@ -70,7 +70,7 @@ marginal <- function(data, wt, tibble = TRUE, stat = "prob") {
 
         if (tibble) {
 
-            out <- enframe(out, "var_a", "p")
+            out <- enframe(out, "var_a", "p_a")
 
         }
 
@@ -88,7 +88,7 @@ marginal <- function(data, wt, tibble = TRUE, stat = "prob") {
 
         if (tibble) {
 
-            out <- enframe(out, "var_a", "n")
+            out <- enframe(out, "var_a", "n_a")
 
         }
 
